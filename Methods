@@ -1,0 +1,41 @@
+public class Player extends BasePlayer {
+	
+	public void setup() {
+		
+		addItemToInventory(new ItemStack(Material.DIAMOND_AXE));
+		addItemToInventory(new ItemStack(Material.FLINT_AND_STEEL));
+	
+	}
+	
+	public void onJoin() {
+		
+		setup();
+	
+	}
+	
+	public void onRespawn() {
+		
+		setup();
+	
+	}
+	
+	public void changeBlock( Material newMaterial ) {
+		
+		getGame().setBlockTypeAtLocation(newMaterial, getTargetBlock().getLocation());
+	
+	}
+	
+	public void onLeftClick() {
+		
+		changeBlock(Material.AIR);
+	
+	}
+	
+	public void onRightClick() {
+		
+		changeBlock(Material.TNT);
+	
+	}
+	
+	
+}
